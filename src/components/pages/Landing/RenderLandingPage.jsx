@@ -9,14 +9,18 @@ import { Button } from 'antd';
 import { useHistory } from 'react-router-dom';
 // for the purposes of testing PageNav
 import PageNav from '../../common/PageNav';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function RenderLandingPage(props) {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const history = useHistory();
+
   const scrollToTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   };
 
-  const history = useHistory();
+
 
   return (
     <div className="main">
@@ -28,6 +32,7 @@ function RenderLandingPage(props) {
             researchers, policymakers, and the public an interactive tool to
             explore USCIS data on Asylum Office decisions
           </h3>
+
         </div>
       </div>
 
